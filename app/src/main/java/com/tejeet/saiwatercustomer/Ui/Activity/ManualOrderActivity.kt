@@ -47,6 +47,11 @@ class ManualOrderActivity : AppCompatActivity() {
                             llAddOrderButton.visibility = View.GONE
 
 
+                        }else{
+                            llTankerQuantity.visibility = View.GONE
+                            llAddOrderButton.visibility = View.GONE
+                            tvOrderSuccessful.visibility = View.VISIBLE
+                            tvOrderSuccessful.text = response.body()?.message
                         }
 
                     }

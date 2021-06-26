@@ -1,5 +1,6 @@
 package com.tejeet.saiwatersuppliers.Ui.Adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,20 @@ class OrdersAdapter(private var dataList:MutableList<MyOrder>, private val itemC
                 tvOrderTime.text = dataList[position].orderdate
                 tvDeliveryBoy.text = dataList[position].filledby
                 tvDeliveryTime.text = dataList[position].dispatchtime
-                idSalesUserStatus.text = dataList[position].orderStatus
+
+            val status = dataList[position].orderStatus.toInt()
+            if (status==0){
+                idSalesUserStatus.text = "Pending"
+                idSalesUserStatus.setTextColor(Color.parseColor("#FF0000"));
+            }else if(status==1){
+                idSalesUserStatus.text = "On Going"
+                idSalesUserStatus.setTextColor(Color.parseColor("#F17F05"));
+            }else {
+                idSalesUserStatus.text = "Fulfilled"
+                idSalesUserStatus.setTextColor(Color.parseColor("#4BEC00"));
+            }
+
+
 
 
 
