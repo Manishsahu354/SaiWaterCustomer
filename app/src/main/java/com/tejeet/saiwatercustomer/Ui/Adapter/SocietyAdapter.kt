@@ -24,9 +24,11 @@ class OrdersAdapter(private var dataList:MutableList<MyOrder>, private val itemC
         holder.apply {
 
                 tvOrderTime.text = dataList[position].orderdate
+
+            if (!dataList[position].filledby.equals("0")){
                 tvDeliveryBoy.text = dataList[position].filledby
                 tvDeliveryTime.text = dataList[position].dispatchtime
-
+            }
             val status = dataList[position].orderStatus.toInt()
             if (status==0){
                 idSalesUserStatus.text = "Pending"

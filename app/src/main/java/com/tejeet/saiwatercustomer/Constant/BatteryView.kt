@@ -24,7 +24,7 @@ class BatteryView @JvmOverloads constructor
 
     // Border
      var borderPaint = Paint().apply {
-        color = Color.BLUE
+        color = Color.GREEN
         style = Paint.Style.STROKE
     }
     private var borderRect = RectF()

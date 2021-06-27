@@ -30,7 +30,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:layout_weight="8"
-                android:src="@drawable/trunck_tanker" />
+                android:src="@drawable/tank_truck_colorful" />
 
         </LinearLayout>
 
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Society Name"
+                android:text="Not Assigned"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 

@@ -30,6 +30,21 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        observeData()
+
+        binding.pullToRefresh.setOnRefreshListener {
+            observeData()
+            binding.pullToRefresh.isRefreshing = false;
+        }
+
+        binding.btnManualOrder.setOnClickListener {
+            startActivity(Intent(requireContext(),ManualOrderActivity::class.java))
+        }
+
+        return binding.root
+    }
+
+    private fun observeData() {
         CoroutineScope(Dispatchers.Main).launch {
             mainViewModel.getDashboard("1","tejeetm@gmail.com")
                 .observe(viewLifecycleOwner, Observer {response->
@@ -47,8 +62,16 @@ class HomeFragment : Fragment() {
                                 binding.lottieLoading.visibility = View.INVISIBLE
                                 binding.tankView.visibility = View.VISIBLE
                                 binding.tvWaterPercentage.visibility = View.VISIBLE
-                                binding.tankView.setPercent(it.waterlevel.toInt())
-                                binding.tvWaterPercentage.text = it.waterlevel.toInt().toString()
+
+
+
+                                val value = map(it.waterlevel.toInt(),53,18,0,100)
+
+                                val watervalue = it.waterlevel.toInt()
+                                val actualWaterLevel = ((60 -watervalue)*100)/60
+
+                                binding.tankView.setPercent(value)
+                                binding.tvWaterPercentage.text = value.toString()
 
                             }
                         }
@@ -57,14 +80,12 @@ class HomeFragment : Fragment() {
                         }
                     }
 
-            })
+                })
         }
-
-        binding.btnManualOrder.setOnClickListener {
-            startActivity(Intent(requireContext(),ManualOrderActivity::class.java))
-        }
-
-        return binding.root
+    }
+    fun map(x:Int, in_min:Int,  in_max:Int,  out_min:Int,  out_max:Int):Int
+    {
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
 
     override fun onDestroyView() {
