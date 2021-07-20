@@ -22,9 +22,9 @@ We have Developed an ecosystem which provides hassle free service between the wa
 
 
 <b>We have develop 3 different app </b></br>
-Suppliers  </br>
-Customers - https://github.com/Manishsahu354/SaiWaterCustomer</br>
-Drivers - https://github.com/harshkamaliya/SaiWaterDriver</br>
+Customer</br>
+Suppliers App -https://github.com/Tejeet/SaiWaterSuppliers </br>
+Drivers App - https://github.com/harshkamaliya/SaiWaterDriver</br>
 
 
 Flow of Ordering
